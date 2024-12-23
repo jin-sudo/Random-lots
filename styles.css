@@ -1,0 +1,351 @@
+/* 设置全局背景样式 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-image: url('black monkey.jpg'); /* 设置页面的背景图片 */
+    background-size: cover; /* 让图片覆盖整个页面 */
+    background-position: center center; /* 图片居中 */
+    background-attachment: fixed; /* 背景固定，滚动时背景不动 */
+    background-repeat: no-repeat; /* 不重复背景 */
+    opacity: 0;
+    animation: fadeIn 1.5s forwards; /* 加入淡入效果 */
+}
+
+/* 页眉样式 */
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 首页部分 */
+.home {
+    position: relative;
+    height: 100vh; /* 设置首页的高度为视口高度 */
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0; /* 保证该部分在视频之下 */
+}
+
+/* 视频背景 */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 使视频处于背景层 */
+}
+
+#video-background {
+    object-fit: cover; /* 保持视频的比例并覆盖整个区域 */
+    width: 100%;
+    height: 100%;
+}
+
+/* 首页内容样式 */
+.home-content {
+    z-index: 1; /* 确保内容显示在视频之上 */
+    padding: 20px;
+}
+
+.home-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.intro-text {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: lighter;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+button:active {
+    transform: scale(0.98); /* 点击时缩小 */
+    background-color: #e67e22; /* 点击时稍微改变颜色 */
+}
+
+/* 页面内容样式 */
+.page {
+    padding: 50px 20px;
+    background-color: white;
+    margin-top: 100px;
+}
+
+.page h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #B0B0B0; /* 浅灰色字体，更适合黑色半透明背景 */
+}
+
+/* 文化介绍部分背景设置为黑色半透明 */
+#culture {
+    background-color: rgba(0, 0, 0, 0.3); /* 半透明的黑色背景，alpha值为0.7 */
+    padding: 50px 20px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 10px; /* 可选，增加圆角 */
+}
+
+/* 文化介绍内容 */
+#culture .content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 文字样式 */
+#culture h2 {
+    font-size: 28px;
+    color: #fff; /* 白色字体，确保在黑色背景上可读 */
+}
+
+#culture p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #B0B0B0; /* 浅灰色字体，以便更好地在黑色背景上显示 */
+}
+
+#culture .image {
+    display: flex; /* 启用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    gap: 20px; /* 图片间距 */
+}
+
+#culture .image img {
+    flex: 0 0 150px; /* 固定每张图片的宽度 */
+    height: 150px; /* 固定高度 */
+    object-fit: cover; /* 图片填充方式，保持比例 */
+    border-radius: 5px; /* 圆角处理，增强视觉效果 */
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.3s ease; /* 更自然的平滑过渡 */
+    will-change: transform, box-shadow; /* 提升动画性能 */
+}
+
+#culture .image img:hover {
+    transform: scale(1.1) translateZ(0); /* 鼠标悬停时放大，使用 GPU 加速 */
+    opacity: 0.9; /* 在悬停时轻微改变透明度 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 加强悬停时的阴影效果 */
+}
+
+/* 响应式调整：在小屏幕设备上缩小图片尺寸 */
+@media (max-width: 768px) {
+    #culture .image img {
+        flex: 0 0 100px; /* 缩小图片宽度 */
+        height: 100px; /* 缩小图片高度 */
+    }
+}
+
+/* 人工智能服务部分背景设置为黑色半透明 */
+#ai-services {
+    background-color: rgba(0, 0, 0, 0.3); /* 半透明的黑色背景 */
+    padding: 50px 20px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 10px; /* 可选，增加圆角 */
+}
+
+/* 人工智能服务内容 */
+#ai-services h2 {
+    font-size: 28px;
+    color: #fff; /* 白色字体 */
+}
+
+#ai-services p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #B0B0B0; /* 浅灰色字体 */
+}
+
+#ai-services .ai-services-list {
+    list-style: none;
+    padding: 0;
+}
+
+#ai-services .ai-services-list li {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+#ai-services .ai-services-list strong {
+    font-weight: bold;
+}
+
+#ai-services .image img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* AI聊天框样式 */
+.ai-chatbox {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    color: white;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-box {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    overflow-y: auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.chat-box .bot-message {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.chat-box .user-message {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.chat-box p {
+    margin: 0;
+}
+
+.user-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+/* 联系我们部分背景设置为黑色半透明 */
+#contact {
+    background-color: rgba(0, 0, 0, 0.3); /* 半透明的黑色背景 */
+    padding: 50px 20px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 10px; /* 可选，增加圆角 */
+}
+
+/* 联系我们内容 */
+#contact h2 {
+    font-size: 28px;
+    color: #fff; /* 白色字体 */
+}
+
+#contact p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #B0B0B0; /* 浅灰色字体 */
+}
+
+#contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact input,
+#contact textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact button {
+    padding: 10px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#contact button:hover {
+    background-color: #e67e22;
+}
+
+/* 页面加载时的淡入效果 */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
